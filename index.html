@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>NBA One on One</title>
+
+	<link href = "http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel = "stylesheet">
+
+	<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class = "header">
+			<h1 class = "text-center">NBA One on One</h1>
+
+			<p class = "text-center">Who would win in a head to head matchup?</p>
+		</div>
+	</div>
+	<div class = "container" style = "background-color: #e5e5e5">
+
+		<h3 class = >Select your player.</h3>
+
+
+				<form action = "/game" method = "POST" role = "form">
+					<label>
+						<input type = "radio" name = "player" value = "lebron james">   Lebron James</input>
+						<img class = "center-block" src = "http://i.forbesimg.com/media/lists/people/lebron-james_416x416.jpg" style = "width:304px;height:228px">
+					</label>
+					<label>
+						<input type = "radio" name = "player" value = "stephen curry">  Stephen Curry</input>
+						<img class = "center-block" src = http://static1.businessinsider.com/image/56be54c86e97c662008b7125-1200/stephen-curry-is-surprisingly-underpaid-he-signed-a-four-year-44-million-contract-extension-in-2012-and-now-makes-12-million-per-year-he-could-triple-that-when-he-becomes-a-free-agent-in-2017.jpg style = "width:304px;height:228px">
+					</label>
+					<label>
+						<input type = "radio" name = "player" value = "russell westbrook">  Russell Westbrook</input>
+						<img class = "center-block" src = http://az616578.vo.msecnd.net/files/2016/05/09/635983788539557028-421969035_russell-westbrook-nba-oklahoma-city-thunder-phoenix-suns.jpg style = "width:304px;height:228px"
+						>
+					</label>
+					<label>
+						<input type = "radio" name = "player" value = "tim duncan">  Tim Duncan</input>
+						<img class = "center-block" src = http://img.bleacherreport.net/img/images/photos/003/568/038/hi-res-2096029549d2ab35ff2c0d2eba4897c6_crop_north.jpg?w=630&h=420&q=75 style = "width:304px;height:228px"
+						>
+					</label>
+
+					<h3> Select your opponent.</h3>
+
+					<label>
+						<input type = "radio" name = "opponent" value = "lebron james">   Lebron James</input>
+						<img class = "center-block" src = "http://i.forbesimg.com/media/lists/people/lebron-james_416x416.jpg" style = "width:304px;height:228px">
+					</label>
+
+					<label>
+						<input type = "radio" name = "opponent" value = "stephen curry">  Stephen Curry</input>
+						<img class = "center-block" src = http://static1.businessinsider.com/image/56be54c86e97c662008b7125-1200/stephen-curry-is-surprisingly-underpaid-he-signed-a-four-year-44-million-contract-extension-in-2012-and-now-makes-12-million-per-year-he-could-triple-that-when-he-becomes-a-free-agent-in-2017.jpg style = "width:304px;height:228px">
+					</label>
+					<label>
+						<input type = "radio" name = "opponent" value = "russell westbrook">  Russell Westbrook</input>
+						<img class = "center-block" src = http://az616578.vo.msecnd.net/files/2016/05/09/635983788539557028-421969035_russell-westbrook-nba-oklahoma-city-thunder-phoenix-suns.jpg style = "width:304px;height:228px"
+						>
+					</label>
+					<label>
+						<input type = "radio" name = "opponent" value = "tim duncan">  Tim Duncan</input>
+						<img class = "center-block" src = http://img.bleacherreport.net/img/images/photos/003/568/038/hi-res-2096029549d2ab35ff2c0d2eba4897c6_crop_north.jpg?w=630&h=420&q=75 style = "width:304px;height:228px"
+						>
+					</label>
+
+					<p></p>
+					<button type = "submit" class = "btn btn-default">Begin Game</button>
+				</form>
+	</div>
+
+</body>
+
+</html>
