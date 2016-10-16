@@ -23,7 +23,7 @@ def game():
 	selected_opponent = request.form['opponent'].encode('ascii', 'ignore')
 	player_score = 0
 	opponent_score = 0
-	game_text, player_score, opponent_score = sportshack.run_simulation(selected_player, selected_opponent, nba_data, 30)
+	game_text, player_score, opponent_score = sportshack.run_simulation(selected_player, selected_opponent, nba_data, 15)
 	selected_player, selected_opponent = capitalize_player_name(selected_player), capitalize_player_name(selected_opponent)
 	return render_template("game.html", selected_player=selected_player, selected_opponent=selected_opponent, player_score = player_score, opponent_score = opponent_score, game_text = game_text)
 
