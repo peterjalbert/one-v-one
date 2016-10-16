@@ -18,7 +18,7 @@ def main():
 
 @app.route('/game', methods = ['POST'])
 def game():
-	nba_data = sportshack.handle_data("peterjalbert/one-v-one/shot_logs.csv")
+	nba_data = sportshack.handle_data("https://github.com/peterjalbert/one-v-one/blob/master/shot_logs.csv")
 	selected_player = request.form['player'].encode('ascii', 'ignore')
 	selected_opponent = request.form['opponent'].encode('ascii', 'ignore')
 	player_score = 0
