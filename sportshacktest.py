@@ -11,21 +11,6 @@ def handle_data(path):
     nba['CLOSEST_DEFENDER'] = nba['CLOSEST_DEFENDER'].apply(lambda x: x[1] + ' ' + x[0] if len(x) == 2 else None)   
     return nba
 
-def capitalize_player_name(player):
-	temp = player.split()
-	for i in range(len(temp)):
-		temp[i] = temp[i][0].upper() + temp[i][1:]
-	temp = ' '.join(temp)
-	return temp
-
-def get_playerlist():
-    data = handle_data("./shot_logs.csv")
-    playlist = list(set(data['CLOSEST_DEFENDER']))
-    player_list = [x for x in playlist if x is not None]
-    player_list.sort(key = lambda b: b.split()[1])
-    player_list = [capitalize_player_name(player) for player in player_list]
-    return player_list
-
 def find_avg_defensive_distance(defender_name,offensive_name,nba_data):
   
     defender = nba_data[nba_data['CLOSEST_DEFENDER'] == defender_name]
@@ -162,3 +147,23 @@ def run_simulation(player,opponent,data, limit):
 
     return game_log, player_score, opponent_score
 
+######################### Testing #############
+
+def capitalize_player_name(player):
+	temp = player.split()
+	for i in range(len(temp)):
+		temp[i] = temp[i][0].upper() + temp[i][1:]
+	temp = ' '.join(temp)
+	return temp
+path = "./shot_logs.csv"
+nba_data = handle_data(path)
+playlist = list(set(nba_data['CLOSEST_DEFENDER']))
+player_list = [x for x in playlist if x is not None]
+player_list.sort(key = lambda b: b.split()[1])
+player_list = [capitalize_player_name(player) for player in player_list]
+#print player_list
+
+
+################## Test game simulation ###########
+
+print run_simulation("lebron james", "kobe bryant", nba_data, 15)

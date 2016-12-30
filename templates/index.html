@@ -7,70 +7,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>NBA One on One</title>
+    <link rel = "icon" href = "{{ url_for('static', filename = 'favicon.png') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Gentium+Basic|Playfair+Display+SC' rel='stylesheet'>
+    <style>
+        img {
+            display: block;
+            margin: 0 auto;
+        }
 
-	<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+        h1 {
+            font-family: 'Playfair Display SC', serif;
+            font-size: 54px;
+            font-weight: bold;
+        }
+        
+        h3 {
+            font-family: 'Gentium Basic', serif;
+        }
+        #subtitle {
+            color: white;
+            font-family: 'Gentium Basic', serif;
+            font-size: 18px;
+            background-color: black;
+            border-radius: 25px;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+        #button-frame {
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
 	<div class="container">
-		<div class = "header">
-			<h1 class = "text-center">NBA One on One</h1>
-
-			<p class = "text-center">Who would win in a head to head matchup?</p>
+		<div class = "header">		
+            <img src = "{{ url_for('static', filename = 'nbalogo.jpg') }}" width = 400px height="200px">
+            <h1 class = "text-center">One on One</h1>
+			<p id = "subtitle" class = "text-center">Who would win in a head to head matchup?</p>
 		</div>
 	</div>
-	<div class = "container" style = "background-color: #e5e5e5">
+	<div class = "container" id = "button-frame" style = "background-color: #e5e5e5">
 
-		<h3 class = >Select your player.</h3>
+		<h3>Select Your Player</h3>
 
 
-				<form action = "/game" method = "POST" role = "form">
-					<label>
-						<input type = "radio" name = "player" value = "lebron james">   Lebron James</input>
-						<img class = "center-block" src = "http://i.forbesimg.com/media/lists/people/lebron-james_416x416.jpg" style = "width:304px;height:228px">
-					</label>
-					<label>
-						<input type = "radio" name = "player" value = "stephen curry">  Stephen Curry</input>
-						<img class = "center-block" src = http://static1.businessinsider.com/image/56be54c86e97c662008b7125-1200/stephen-curry-is-surprisingly-underpaid-he-signed-a-four-year-44-million-contract-extension-in-2012-and-now-makes-12-million-per-year-he-could-triple-that-when-he-becomes-a-free-agent-in-2017.jpg style = "width:304px;height:228px">
-					</label>
-					<label>
-						<input type = "radio" name = "player" value = "russell westbrook">  Russell Westbrook</input>
-						<img class = "center-block" src = http://az616578.vo.msecnd.net/files/2016/05/09/635983788539557028-421969035_russell-westbrook-nba-oklahoma-city-thunder-phoenix-suns.jpg style = "width:304px;height:228px"
-						>
-					</label>
-					<label>
-						<input type = "radio" name = "player" value = "tim duncan">  Tim Duncan</input>
-						<img class = "center-block" src = http://img.bleacherreport.net/img/images/photos/003/568/038/hi-res-2096029549d2ab35ff2c0d2eba4897c6_crop_north.jpg?w=630&h=420&q=75 style = "width:304px;height:228px"
-						>
-					</label>
+        <form action = "/game" method = "POST" role = "form">
+					<div class="form-group">
+                    <select class= "form-control" id= "sell" name = "player">
+                        <option value = "" disabled selected>Select your player...</option>
+                    </select>
+</div>
 
-					<h3> Select your opponent.</h3>
+					<h3> Select Your Opponent</h3>
+           <div class="form-group">
+                    <select class= "form-control" id= "sell" name = "opponent">
+                        <option disabled selected>Select your opponent...</option>
+                    </select>
+            </div>
+					
 
-					<label>
-						<input type = "radio" name = "opponent" value = "lebron james">   Lebron James</input>
-						<img class = "center-block" src = "http://i.forbesimg.com/media/lists/people/lebron-james_416x416.jpg" style = "width:304px;height:228px">
-					</label>
-
-					<label>
-						<input type = "radio" name = "opponent" value = "stephen curry">  Stephen Curry</input>
-						<img class = "center-block" src = http://static1.businessinsider.com/image/56be54c86e97c662008b7125-1200/stephen-curry-is-surprisingly-underpaid-he-signed-a-four-year-44-million-contract-extension-in-2012-and-now-makes-12-million-per-year-he-could-triple-that-when-he-becomes-a-free-agent-in-2017.jpg style = "width:304px;height:228px">
-					</label>
-					<label>
-						<input type = "radio" name = "opponent" value = "russell westbrook">  Russell Westbrook</input>
-						<img class = "center-block" src = http://az616578.vo.msecnd.net/files/2016/05/09/635983788539557028-421969035_russell-westbrook-nba-oklahoma-city-thunder-phoenix-suns.jpg style = "width:304px;height:228px"
-						>
-					</label>
-					<label>
-						<input type = "radio" name = "opponent" value = "tim duncan">  Tim Duncan</input>
-						<img class = "center-block" src = http://img.bleacherreport.net/img/images/photos/003/568/038/hi-res-2096029549d2ab35ff2c0d2eba4897c6_crop_north.jpg?w=630&h=420&q=75 style = "width:304px;height:228px"
-						>
-					</label>
-
-					<p></p>
-					<button type = "submit" class = "btn btn-default">Begin Game</button>
-				</form>
+            <p></p>
+            <button type = "submit" class = "btn btn-default">Begin Game</button>
+        </form>
 	</div>
-
+    <script type = "text/javascript">
+        function createPlayerName (aList) {
+            console.log("function reached");
+            for (var i = 0; i < aList.length; i++) {
+                var element = document.getElementsByClassName("form-control");
+                console.log("Got Elements");
+                console.log(aList.length);
+                console.log(element.length);
+                for (var j = 0; j < element.length; j++) {
+                    var listItem = document.createElement("option");
+                    listItem.setAttribute("value", aList[i]);
+                    var textNode = document.createTextNode( aList[i]);
+                    listItem.appendChild(textNode);
+                    element[j].appendChild(listItem);
+                }
+            }
+        };
+        createPlayerName( {{ player_list|tojson }});
+    </script>
 </body>
 
 </html>
