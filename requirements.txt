@@ -24,6 +24,7 @@ numpy==1.11.0
 pandas==0.19.0
 parsel==1.0.3
 pathtools==0.1.2
+plotly==1.9.10
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
 pycparser==2.14
