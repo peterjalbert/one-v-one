@@ -29,7 +29,7 @@ def capitalize_player_name(player):
 	return temp
 
 def get_playerlist():
-    data = handle_data_simple("/Users/peterjalbert/Documents/one-v-one/shotlogs.csv")
+    data = handle_data_simple("./shotlogs.csv")
     defenderset = set(data['CLOSEST_DEFENDER'])
     playerset = set(data['player_name'])
     playlist = defenderset.intersection(playerset)
