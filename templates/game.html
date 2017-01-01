@@ -4,6 +4,8 @@
 <head>
 	<title>NBA One on One</title>
     <link rel = "icon" href = "{{ url_for('static', filename = 'favicon.png') }}">
+    <script type="text/javascript"></script>
+    <style></style> 
 	<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,8 +34,16 @@
   		</div>
 	</div>
 	<div class = "container" style = "background-color:#b2b2b2">
-		<h6 class = "monospace" style = "white-space:pre-wrap;">{{game_text}}</h6>
+		<h4 class = "monospace" style = "white-space:pre-wrap;">{{totalgames}}</h4>
+        <h4 class = "monospace" style = "white-space:pre-wrap;">{{player_wp}}</h4>
+        <h4 class = "monospace" style = "white-space:pre-wrap;">{{opponent_wp}}</h4>
+        <h4 class = "monospace" style = "white-space:pre-wrap;">{{pointdifference}}</h4>
 	</div>
+    <div class = "container chart">{{ htmlShotChart|safe }}</div>
+    <div class = "container chart">{{ htmlGameTimeLine|safe }}</div>
+    <div class = "container chart">{{ htmlShotDistBreakdown|safe }}</div>
+    <div class = "container chart">{{ htmlDribbleBreakdown|safe }}</div>
+    <div class = "container chart">{{ htmlFg|safe }}</div>
 	<div class = "container">
 		<a class="btn btn-default" href="/" role="button">Return to Mainpage</a>
 	</div>

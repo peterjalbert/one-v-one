@@ -13,16 +13,13 @@ def main():
 
 @app.route('/game', methods = ['POST'])
 def game():
-    nba_data = sportshack.handle_data("./shot_logs.csv")
     selected_player = request.form['player'].encode('ascii', 'ignore').lower()
     selected_opponent = request.form['opponent'].encode('ascii', 'ignore').lower()
-    print selected_player
-    print selected_opponent
     player_score = 0
     opponent_score = 0
-    game_text, player_score, opponent_score = sportshack.run_simulation(selected_player, selected_opponent, nba_data, 15)
+    player_score, opponent_score, totalgames, player_wp, opponent_wp, pointdifference, htmlShotChart, htmlGameTimeLine, htmlShotDistBreakdown, htmlDribbleBreakdown, htmlFg = sportshack.finalsimulation("./shotlogs.csv", selected_player, selected_opponent)
     selected_player, selected_opponent = sportshack.capitalize_player_name(selected_player), sportshack.capitalize_player_name(selected_opponent)
-    return render_template("game.html", selected_player=selected_player, selected_opponent=selected_opponent, player_score = player_score, opponent_score = opponent_score, game_text = game_text)
+    return render_template("game.html", selected_player=selected_player, selected_opponent=selected_opponent, player_score = player_score, opponent_score = opponent_score, totalgames = totalgames, player_wp = player_wp, opponent_wp = opponent_wp, pointdifference = pointdifference, htmlShotChart = htmlShotChart, htmlGameTimeLine = htmlGameTimeLine, htmlShotDistBreakdown = htmlShotDistBreakdown, htmlDribbleBreakdown = htmlDribbleBreakdown, htmlFg = htmlFg)
 
 if __name__ == "__main__":
 	app.run()
