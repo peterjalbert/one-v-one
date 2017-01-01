@@ -577,7 +577,7 @@ def plotFGPercentage(player_1,player_2,player_1_fgs,player_2_fgs):
 #plotFGPercentage(player_1,player_2,player_1_fgs,player_2_fgs)
 
 def finalsimulation(path,player_1,player_2):
-    player_1_points, player_2_points, player_2_fgs, player_1_fgs, tg, wp1, wp2, pntd = simulation(path,21,player_1,player_2, 5) # returns dataframe of player_2_game,player_1_game, total games(string),
+    player_1_points, player_2_points, player_2_fgs, player_1_fgs, tg, wp1, wp2, pntd = simulation(path,21,player_1,player_2, 3) # returns dataframe of player_2_game,player_1_game, total games(string),
     # win percentage for player 1(string) and player 2(string), and point differential for games(string)
     htmlShotChart = plotSimulation(player_1,player_2,player_1_fgs,player_2_fgs) #html code for the shot chart
     htmlGameTimeLine = plotGameTimeLine(player_1,player_2,player_1_fgs,player_2_fgs) #html chart for the points/game 
